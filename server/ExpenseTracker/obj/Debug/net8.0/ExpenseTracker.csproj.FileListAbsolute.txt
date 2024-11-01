@@ -1,0 +1,70 @@
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\appsettings.json
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\ExpenseTracker.staticwebassets.endpoints.json
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\ExpenseTracker.exe
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\ExpenseTracker.deps.json
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\ExpenseTracker.runtimeconfig.json
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\ExpenseTracker.dll
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\ExpenseTracker.pdb
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.csproj.AssemblyReference.cache
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.AssemblyInfoInputs.cache
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.AssemblyInfo.cs
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.csproj.CoreCompileInputs.cache
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\scopedcss\bundle\ExpenseTracker.styles.css
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets\msbuild.ExpenseTracker.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets\msbuild.ExpenseTracker.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets\msbuild.build.ExpenseTracker.props
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ExpenseTracker.props
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ExpenseTracker.props
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseT.567C5DF3.Up2Date
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.dll
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\refint\ExpenseTracker.dll
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.pdb
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.genruntimeconfig.cache
+C:\Users\Xpc\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ref\ExpenseTracker.dll
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\bin\Debug\net8.0\appsettings.Development.json
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\bin\Debug\net8.0\appsettings.json
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\bin\Debug\net8.0\ExpenseTracker.staticwebassets.endpoints.json
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\bin\Debug\net8.0\ExpenseTracker.exe
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\bin\Debug\net8.0\ExpenseTracker.deps.json
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\bin\Debug\net8.0\ExpenseTracker.runtimeconfig.json
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\bin\Debug\net8.0\ExpenseTracker.dll
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\bin\Debug\net8.0\ExpenseTracker.pdb
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.csproj.AssemblyReference.cache
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.GeneratedMSBuildEditorConfig.editorconfig
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.AssemblyInfoInputs.cache
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.AssemblyInfo.cs
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.csproj.CoreCompileInputs.cache
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.MvcApplicationPartsAssemblyInfo.cs
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.MvcApplicationPartsAssemblyInfo.cache
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\scopedcss\bundle\ExpenseTracker.styles.css
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\staticwebassets.build.json
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\staticwebassets.development.json
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\staticwebassets\msbuild.ExpenseTracker.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\staticwebassets\msbuild.ExpenseTracker.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\staticwebassets\msbuild.build.ExpenseTracker.props
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ExpenseTracker.props
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ExpenseTracker.props
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\ExpenseT.567C5DF3.Up2Date
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.dll
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\refint\ExpenseTracker.dll
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.pdb
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.genruntimeconfig.cache
+D:\Facultate & Altele\DAW\ExpenseTracker\server\ExpenseTracker\obj\Debug\net8.0\ref\ExpenseTracker.dll
