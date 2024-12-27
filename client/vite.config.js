@@ -6,12 +6,17 @@ import { visualizer } from 'rollup-plugin-visualizer'; //from rollup bundler
 export default defineConfig({
   plugins: [
     react(),
-    visualizer({ open: true }), // Visualize bundle size
+    visualizer({ open: true }), // visualize bundle size
   ],
   build: {
     minify: 'terser', // terser for minification
     chunkSizeWarningLimit: 600, // chunk size warning limit
     cssCodeSplit: true, // split css files or better caching
     sourcemap: true, // enable sourcemaps for easier debugging
+  },
+  server: {
+    port: 3000, // Set the desired port
+    open: true
+
   },
 })
