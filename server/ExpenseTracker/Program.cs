@@ -1,4 +1,9 @@
+using ExpenseTracker.DataLayer;
+using ExpenseTracker.Interfaces.Service;
+using ExpenseTracker.Services;
+using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
+using StackExchange.Redis;
 
 namespace ExpenseTracker
 {
@@ -17,6 +22,15 @@ namespace ExpenseTracker
             builder.Services.AddOpenApi();
 
             //builder.Services.AddScalarApi();
+
+            builder.Services.AddDbContext<DataContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            //Services from DependecyInjection.cs
+            builder.Services.AddApplicationServices();
+            builder.Services.ConnectionStrings(builder.Configuration);
+            builder.Services.RestOfTheServices();
+            
 
             var app = builder.Build();
 

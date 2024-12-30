@@ -1,0 +1,48 @@
+version: '3.9'
+
+services:
+  expensetracker:
+    image: expensetracker:latest # Replace with your app's image if applicable
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - CONNECTIONSTRINGS__DATABASE=Host=postgres;Database=expensetracker;Username=postgres;Password=secret # Example
+      - CACHE__URL=valkey:6379 # Example cache URL pointing to Valkey
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    depends_on:
+      - postgres
+      - valkey
+
+  valkey:
+    image: valkey/valkey:latest # Replace with the official Valkey image if different
+    container_name: valkey
+    ports:
+      - "6379:6379" # Default Redis-compatible port
+    volumes:
+      - valkey-data:/data
+    environment:
+      - VALKEY_MAXMEMORY=512mb # Example environment variable
+
+  postgres:
+    image: postgres:latest # Use a specific version or `postgres:latest`
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: expensetrackerdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  valkey-data:
+    driver: local
+  postgres-data:
+    driver: local

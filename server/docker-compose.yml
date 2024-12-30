@@ -1,0 +1,6 @@
+services:
+  expensetracker:
+    image: ${DOCKER_REGISTRY-}expensetracker
+    build:
+      context: .
+      dockerfile: ExpenseTracker/Dockerfile
