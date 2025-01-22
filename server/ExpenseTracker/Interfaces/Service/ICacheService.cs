@@ -2,7 +2,7 @@
 {
     public interface ICacheService
     {
-        public Task<T> GetCacheValueAsync<T>(string key);
-        public Task<bool> SetCacheValueAsync<T>(string key, T value);
+        public Task<T> GetCacheValue<T>(string key);
+        public Task<bool> SetCacheValue<T>(string key, T value);
     }
 }

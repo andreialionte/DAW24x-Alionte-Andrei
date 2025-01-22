@@ -1,14 +1,13 @@
-version: '3.9'
+﻿version: '3.9'
 
 services:
   expensetracker:
-    image: expensetracker:latest # Replace with your app's image if applicable
+    image: expensetracker:latest 
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=8080
-      - ASPNETCORE_HTTPS_PORTS=8081
-      - CONNECTIONSTRINGS__DATABASE=Host=postgres;Database=expensetracker;Username=postgres;Password=secret # Example
-      - CACHE__URL=valkey:6379 # Example cache URL pointing to Valkey
+      - CONNECTIONSTRINGS__DATABASE=Host=postgres;Database=expensetracker;Username=postgres;Password=secret
+      - CACHE__URL=valkey:6379
+      - MASSTRANSIT__RABBITMQ__HOST=rabbitmq:5672  # Folosește RabbitMQ în loc de Kafka
     ports:
       - "8080:8080"
       - "8081:8081"
@@ -18,19 +17,20 @@ services:
     depends_on:
       - postgres
       - valkey
+      - rabbitmq
 
   valkey:
-    image: valkey/valkey:latest # Replace with the official Valkey image if different
+    image: valkey/valkey:latest 
     container_name: valkey
     ports:
-      - "6379:6379" # Default Redis-compatible port
+      - "6379:6379"
     volumes:
       - valkey-data:/data
     environment:
-      - VALKEY_MAXMEMORY=512mb # Example environment variable
+      - VALKEY_MAXMEMORY=512mb 
 
   postgres:
-    image: postgres:latest # Use a specific version or `postgres:latest`
+    image: postgres:latest 
     container_name: postgres
     environment:
       POSTGRES_USER: postgres
@@ -41,8 +41,22 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"   # Portul pentru RabbitMQ
+      - "15672:15672" # Portul pentru RabbitMQ Management Console
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+
 volumes:
   valkey-data:
     driver: local
   postgres-data:
+    driver: local
+  rabbitmq-data:
     driver: local

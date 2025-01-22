@@ -16,7 +16,13 @@ export default defineConfig({
   },
   server: {
     port: 3000, // Set the desired port
-    open: true
-
+    open: true,
+    // proxy: {
+    //   '/api': {
+    //     target: 'http://localhost:5000', // Backend API URL
+    //     changeOrigin: true,
+    //     secure: false, // Disable SSL verification for the proxy
+    //   },
+    // },
   },
 })

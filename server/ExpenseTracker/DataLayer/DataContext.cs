@@ -30,10 +30,10 @@ namespace ExpenseTracker.DataLayer
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(u => u.Id);
-                entity.Property(u => u.Username).IsRequired().HasMaxLength(100);
+                //entity.Property(u => u.Username).IsRequired().HasMaxLength(100);
                 entity.Property(u => u.Email).IsRequired().HasMaxLength(200);
-                entity.Property(u => u.PasswordHash).IsRequired();
-                entity.Property(u => u.Salt).IsRequired();
+                //entity.Property(u => u.PasswordHash).IsRequired();
+                //entity.Property(u => u.Salt).IsRequired();
 
                 // Relationships
                 entity.HasMany(u => u.Expenses)
@@ -75,11 +75,11 @@ namespace ExpenseTracker.DataLayer
             modelBuilder.Entity<Expense>(entity =>
             {
                 entity.HasKey(e => e.Id);
-                entity.Property(e => e.Description).IsRequired().HasMaxLength(200);
+                entity.Property(e => e.Title).IsRequired().HasMaxLength(50);
                 entity.Property(e => e.Amount).IsRequired();
                 entity.Property(e => e.Date).IsRequired();
-                entity.Property(e => e.Notes).HasMaxLength(500);
-                entity.Property(e => e.AttachmentUrl).HasMaxLength(500);
+                entity.Property(e => e.Notes);
+                //entity.Property(e => e.AttachmentUrl).HasMaxLength(500);      
 
                 // Relationships
                 entity.HasOne(e => e.User)
@@ -132,8 +132,28 @@ namespace ExpenseTracker.DataLayer
                 entity.Property(b => b.IsActive).IsRequired();
 
 
-                //create relatioship betwen auth and user
+                //relatioship betwen auth and user
             });
+
+            modelBuilder.Entity<Category>()
+            .HasOne(c => c.User)
+            .WithMany(u => u.Categories)
+            .HasForeignKey(k => k.UserId);
+
+            modelBuilder.Entity<User>().
+                HasMany(m => m.Categories)
+                .WithOne(m => m.User)
+                .HasForeignKey(k => k.UserId);
+
+            modelBuilder.Entity<Budget>()
+                .HasMany(m => m.Expenses)
+                .WithOne(o => o.Budget)
+                .HasForeignKey(k => k.BudgetId);
+
+            modelBuilder.Entity<Expense>()
+                .HasOne(m => m.Budget)
+                .WithMany(m => m.Expenses)
+                .HasForeignKey(k => k.BudgetId);
         }
     }
 }

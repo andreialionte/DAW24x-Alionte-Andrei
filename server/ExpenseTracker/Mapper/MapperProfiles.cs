@@ -8,6 +8,13 @@ public class MapperProfiles : Profile
 {
     public MapperProfiles()
     {
-        CreateMap<User, RegisterDto>().ReverseMap();
+        CreateMap<Expense, ExpenseDto>().ReverseMap();
+
+        CreateMap<Auth, RegisterDto>().ReverseMap();
+        CreateMap<Auth, LoginDto>().ReverseMap();
+        CreateMap<RegisterDto, User>().ReverseMap();
+        CreateMap<RegisterDto, Auth>().ReverseMap();
+        CreateMap<Budget, BudgetDto>().ReverseMap();
+        CreateMap<Category, CategoryDto>().ReverseMap();
     }
 }

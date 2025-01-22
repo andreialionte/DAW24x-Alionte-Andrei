@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, CheckCircle, BarChart2, Wallet, Shield, Star } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
   const [typedText, setTypedText] = useState('');
@@ -11,9 +12,12 @@ function Home() {
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
+  const navigate = useNavigate();
+
+
   useEffect(() => {
     const phrase = phrases[currentPhraseIndex];
-    let timeout;
+    let timeout: any;
 
     if (!isDeleting && typedText.length < phrase.length) {
       // Typing
@@ -51,12 +55,12 @@ function Home() {
               ExpenseFlow
             </h5>
           </div>
-          <div className="flex space-x-6">
+          {/* <div className="flex gap-6">
             <a href="#features" className="text-gray-200 hover:text-green-400 transition-colors font-medium">Features</a>
             <a href="#pricing" className="text-gray-200 hover:text-green-400 transition-colors font-medium">Pricing</a>
             <a href="#testimonials" className="text-gray-200 hover:text-green-400 transition-colors font-medium">Testimonials</a>
             <a href="#contact" className="text-gray-200 hover:text-green-400 transition-colors font-medium">Contact</a>
-          </div>
+          </div> */}
         </div>
       </nav>
 
@@ -76,7 +80,8 @@ function Home() {
           <div className="flex justify-center space-x-4">
             <button className="group flex items-center justify-center bg-green-500 text-white px-8 py-4 rounded-lg 
               hover:bg-green-600 transition-all duration-300 ease-in-out transform hover:-translate-y-1 
-              hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+              hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+              onClick={() => navigate("/register")}>
               Get Started
               <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -84,7 +89,8 @@ function Home() {
             <button className="group flex items-center justify-center border-2 border-green-500 text-green-500 
               px-8 py-4 rounded-lg hover:bg-green-500 hover:text-white 
               transition-all duration-300 ease-in-out transform hover:-translate-y-1 
-              hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+              hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+              onClick={() => {navigate("/dashboard")}}>
               View Dashboard
               <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -183,41 +189,9 @@ function Home() {
             <h5 className="text-xl font-bold text-green-400 mb-4">ExpenseFlow</h5>
             <p className="text-gray-300">Simplify your financial journey with smart, intuitive expense tracking.</p>
           </div>
-          <div>
-            <h6 className="font-bold mb-4 text-white">Quick Links</h6>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-green-400">Home</a></li>
-              <li><a href="#features" className="text-gray-300 hover:text-green-400">Features</a></li>
-              <li><a href="#pricing" className="text-gray-300 hover:text-green-400">Pricing</a></li>
-              <li><a href="#testimonials" className="text-gray-300 hover:text-green-400">Testimonials</a></li>
-            </ul>
-          </div>
-          <div>
-            <h6 className="font-bold mb-4 text-white">Support</h6>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-green-400">Help Center</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400">Contact Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400">Privacy Policy</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400">Terms of Service</a></li>
-            </ul>
-          </div>
-          <div>
-            <h6 className="font-bold mb-4 text-white">Newsletter</h6>
-            <p className="text-gray-300 mb-4">Stay updated with our latest features and financial tips.</p>
-            <div className="flex">
-              <input 
-                type="email" 
-                placeholder="Your email" 
-                className="bg-gray-800 text-white p-2 rounded-l-lg flex-grow focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
-              <button className="bg-green-500 text-white p-2 rounded-r-lg hover:bg-green-600">
-                Subscribe
-              </button>
-            </div>
-          </div>
         </div>
         <div className="container mx-auto px-4 mt-8 text-center text-gray-400 border-t border-gray-800 pt-4">
-          © 2024 ExpenseFlow. All rights reserved.
+          © 2025 ExpenseFlow. All rights reserved.
         </div>
       </footer>
     </div>

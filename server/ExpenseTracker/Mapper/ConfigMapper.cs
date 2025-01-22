@@ -1,21 +1,19 @@
 ﻿using AutoMapper;
-using ExpenseTracker.Dtos;
-using ExpenseTracker.Models;
 
 namespace ExpenseTracker.Mapper;
 
-public class ConfigMapper
+public static class ConfigMapper
 {
-    private static readonly Lazy<IMapper> LazyMapper = new Lazy<IMapper>(() =>
+    private static readonly Lazy<IMapper> Lazy = new Lazy<IMapper>(() =>
     {
         var config = new MapperConfiguration(cfg =>
         {
+            cfg.ShouldMapProperty = p => p.GetMethod.IsPublic || p.GetMethod.IsAssembly;
             cfg.AddProfile<MapperProfiles>();
-
         });
         var mapper = config.CreateMapper();
         return mapper;
     });
 
-    public static IMapper Mapper => LazyMapper.Value;
+    public static IMapper Mapper => Lazy.Value;
 }

@@ -1,6 +1,13 @@
-﻿namespace ExpenseTracker.Interfaces.Repository;
+﻿using ExpenseTracker.Models;
 
-public interface IUserRepository
+namespace ExpenseTracker.Interfaces.Repository
 {
-    
+    public interface IUserRepository
+    {
+        Task AddUserAsync(User user);
+        Task<User> GetUserByIdAsync(Guid id);
+        Task<IReadOnlyList<User>> GetAllUsersAsync();
+        Task UpdateUserAsync(User user);
+        Task DeleteUserAsync(Guid id);
+    }
 }

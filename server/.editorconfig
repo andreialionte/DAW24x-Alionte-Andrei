@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# S125: Sections of code should not be commented out
+dotnet_diagnostic.S125.severity = none
+
+# S1186: Methods should not be empty
+dotnet_diagnostic.S1186.severity = none
