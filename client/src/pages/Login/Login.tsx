@@ -16,7 +16,7 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 const LoginComponent = () => {
-  const navigate = useNavigate(); // Correctly place useNavigate inside the component
+  const navigate = useNavigate(); 
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -24,9 +24,9 @@ const LoginComponent = () => {
 
   const handleLogin = async (data: FormData) => {
     try {
-      const response = await LoginAPI(data); // Assuming LoginAPI handles login API request
+      const response = await LoginAPI(data); 
       localStorage.setItem('Token', response); // Store the token
-      navigate('/'); // Redirect to dashboard on successful login
+      navigate('/dashboard'); 
       toast.success('Login successful! Welcome back.', {
         position: 'top-center',
         autoClose: 3000,
@@ -103,7 +103,7 @@ const LoginComponent = () => {
                 {errors.password && <p className="text-red-500 text-center">{errors.password.message}</p>}
               </div>
 
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 <label className="flex items-center">
                   <input type="checkbox" className="form-checkbox text-green-500 rounded bg-gray-900 border-gray-700" />
                   <span className="ml-2 text-gray-300">Remember me</span>
@@ -111,7 +111,7 @@ const LoginComponent = () => {
                 <a href="#" className="text-green-400 hover:text-green-300">
                   Forgot Password?
                 </a>
-              </div>
+              </div> */}
 
               <button
                 type="submit"
@@ -126,7 +126,7 @@ const LoginComponent = () => {
 
             <p className="mt-6 text-center text-gray-300">
               Don't have an account?{' '}
-              <button className="text-green-400 hover:text-green-300">
+              <button className="text-green-400 hover:text-green-300" onClick={() => {navigate("/register")}}>
                 Sign up
               </button>
             </p>

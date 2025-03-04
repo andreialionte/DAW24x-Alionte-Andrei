@@ -6,6 +6,7 @@ import { ChevronRight, User, Mail, Lock } from 'lucide-react';
 import { RegisterAPI } from '../../services/AuthService';
 import { toast, ToastContainer } from 'react-toastify'; // Import toast and ToastContainer
 import 'react-toastify/dist/ReactToastify.css'; // Import toast styles
+import { useNavigate } from 'react-router-dom';
 
 const formSchema = z.object({
   firstName: z.string().min(1, 'First name is required'),
@@ -23,6 +24,9 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 const RegisterForm = () => {
+
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -33,7 +37,6 @@ const RegisterForm = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      // Call RegisterAPI and store the result
       const registerPromise = RegisterAPI({
         Email: data.email,
         FirstName: data.firstName,
@@ -54,6 +57,10 @@ const RegisterForm = () => {
             hideProgressBar: true,
           }
         );
+        
+        setTimeout(() => {
+          navigate('/login');
+        }, 2000);
       }).catch((err) => {
         const errorMessage = err?.response?.data?.message || 'Something went wrong. Please try again.';
         toast.error(

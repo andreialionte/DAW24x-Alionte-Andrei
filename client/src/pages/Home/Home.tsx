@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, CheckCircle, BarChart2, Wallet, Shield, Star } from 'lucide-react';
+import { ChevronRight, CheckCircle, BarChart2, Wallet, Shield, Star, LogIn, UserPlus } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 function Home() {
@@ -20,22 +20,18 @@ function Home() {
     let timeout: any;
 
     if (!isDeleting && typedText.length < phrase.length) {
-      // Typing
       timeout = setTimeout(() => {
         setTypedText(phrase.slice(0, typedText.length + 1));
       }, 50);
     } else if (isDeleting && typedText.length > 0) {
-      // Deleting
       timeout = setTimeout(() => {
         setTypedText(typedText.slice(0, -1));
       }, 30);
     } else if (!isDeleting && typedText.length === phrase.length) {
-      // Pause at full phrase
       timeout = setTimeout(() => {
         setIsDeleting(true);
       }, 2000);
     } else if (isDeleting && typedText.length === 0) {
-      // Move to next phrase
       setIsDeleting(false);
       setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
     }
@@ -55,12 +51,24 @@ function Home() {
               ExpenseFlow
             </h5>
           </div>
-          {/* <div className="flex gap-6">
-            <a href="#features" className="text-gray-200 hover:text-green-400 transition-colors font-medium">Features</a>
-            <a href="#pricing" className="text-gray-200 hover:text-green-400 transition-colors font-medium">Pricing</a>
-            <a href="#testimonials" className="text-gray-200 hover:text-green-400 transition-colors font-medium">Testimonials</a>
-            <a href="#contact" className="text-gray-200 hover:text-green-400 transition-colors font-medium">Contact</a>
-          </div> */}
+          
+          <div className="flex items-center space-x-4">
+            <button 
+              onClick={() => navigate('/login')}
+              className="flex items-center text-gray-200 hover:text-green-400 transition-colors"
+            >
+              <LogIn className="w-4 h-4 mr-1" />
+              Log In
+            </button>
+            
+            <button 
+              onClick={() => navigate('/register')}
+              className="flex items-center bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors"
+            >
+              <UserPlus className="w-4 h-4 mr-1" />
+              Register
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -188,6 +196,35 @@ function Home() {
           <div>
             <h5 className="text-xl font-bold text-green-400 mb-4">ExpenseFlow</h5>
             <p className="text-gray-300">Simplify your financial journey with smart, intuitive expense tracking.</p>
+          </div>
+          <div>
+            <h5 className="font-bold mb-4 text-white">Account</h5>
+            <ul className="space-y-3">
+              <li>
+                <button 
+                  onClick={() => navigate('/login')}
+                  className="text-gray-300 hover:text-green-400 transition-colors"
+                >
+                  Log In
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigate('/register')}
+                  className="text-gray-300 hover:text-green-400 transition-colors"
+                >
+                  Register
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigate('/dashboard')}
+                  className="text-gray-300 hover:text-green-400 transition-colors"
+                >
+                  Dashboard
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
         <div className="container mx-auto px-4 mt-8 text-center text-gray-400 border-t border-gray-800 pt-4">

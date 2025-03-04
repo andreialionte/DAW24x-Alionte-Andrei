@@ -38,9 +38,6 @@ const AddCategory = () => {
     try {
       await CreateCategory(formData, userId);
       setSuccess(true);
-      setTimeout(() => {
-        navigate('/categories');
-      }, 2000);
     } catch (err: any) {
       if (err.response?.data?.message) {
         setError(`Category ${err.response.data.message}`);

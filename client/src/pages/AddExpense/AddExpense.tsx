@@ -11,7 +11,6 @@ import { GetBudgetsAPI, GetBudgetAPI } from '../../services/BudgetService';
 import { CreateExpense } from '../../services/ExpenseService';
 import { useForm, Controller } from 'react-hook-form';
 
-// Card Components
 const Card: React.FC<{ children: React.ReactNode; className?: string }> = ({ 
   children, 
   className = "" 
@@ -41,9 +40,8 @@ const CardContent: React.FC<{ children: React.ReactNode }> = ({ children }) => (
     {children}
   </div>
 );
-
 const getTokenLocalStorage = localStorage.getItem("Token");
-const userIdFromJwt = DecodeJWT(getTokenLocalStorage!);
+const userIdFromJwt = getTokenLocalStorage ? DecodeJWT(getTokenLocalStorage) : { userId: "" };
 
 const AddExpense: React.FC = () => {
   const [userData, setUserData] = useState<User | null>(null);
@@ -64,7 +62,6 @@ const AddExpense: React.FC = () => {
     }
   });
 
-  // Watch for changes in categoryId and budgetId
   const selectedCategoryId = watch('categoryId');
   const selectedBudgetId = watch('budgetId');
 
@@ -82,7 +79,6 @@ const AddExpense: React.FC = () => {
         setCategories(userCategories);
         setBudgets(userBudgets);
 
-        // Set user in form
         if (user) {
           setValue('user', user);
           setValue('userId', user.id);
@@ -98,7 +94,6 @@ const AddExpense: React.FC = () => {
     fetchData();
   }, [setValue]);
 
-  // Update category object when ID changes
   useEffect(() => {
     const updateCategory = async () => {
       if (selectedCategoryId) {
@@ -114,7 +109,6 @@ const AddExpense: React.FC = () => {
     updateCategory();
   }, [selectedCategoryId, setValue]);
 
-  // Update budget object when ID changes
   useEffect(() => {
     const updateBudget = async () => {
       if (selectedBudgetId) {
@@ -192,7 +186,6 @@ const AddExpense: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-900 p-6">
       <div className="max-w-2xl mx-auto">
-        {/* Back Button */}
         <button 
           onClick={() => window.history.back()}
           className="flex items-center text-gray-400 hover:text-white mb-6"
@@ -210,7 +203,6 @@ const AddExpense: React.FC = () => {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              {/* Title */}
               <div>
                 <label htmlFor="title" className={labelStyles}>
                   Title
@@ -289,7 +281,6 @@ const AddExpense: React.FC = () => {
                 )}
               </div>
 
-              {/* Category */}
               <div>
                 <label htmlFor="categoryId" className={labelStyles}>
                   Category
@@ -323,7 +314,6 @@ const AddExpense: React.FC = () => {
                 )}
               </div>
 
-              {/* Budget */}
               <div>
                 <label htmlFor="budgetId" className={labelStyles}>
                   Budget
@@ -357,7 +347,6 @@ const AddExpense: React.FC = () => {
                 )}
               </div>
 
-              {/* Notes/Description */}
               <div>
                 <label htmlFor="notes" className={labelStyles}>
                   Notes/Description
@@ -377,7 +366,6 @@ const AddExpense: React.FC = () => {
                 />
               </div>
 
-              {/* Submit Buttons */}
               <div className="flex justify-end space-x-4">
                 <button
                   type="button"

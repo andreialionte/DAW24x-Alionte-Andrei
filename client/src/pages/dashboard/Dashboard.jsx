@@ -7,7 +7,7 @@ import {
   Wallet, TrendingUp, TrendingDown, DollarSign,
   CreditCard, ShoppingBag, Home, Utensils, Car,
   Bell, Search, Settings, ChevronDown, AlertCircle,
-  PlusCircle
+  PlusCircle, Tag, Layers, List
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { GetExpensesByMonth, GetLastFiveExpenses, GetExpensesByCategory, DeleteExpense } from '../../services/ExpenseService';
@@ -20,10 +20,12 @@ import { User } from 'lucide-react';
 const Dashboard = () => {
   // State management
   const [categoryData, setCategoryData] = useState([]);
+  const [allCategories, setAllCategories] = useState([]);
   const [monthlyExpenses, setMonthlyExpenses] = useState([]);
   const [recentTransactions, setRecentTransactions] = useState([]);
   const [budgetData, setBudgetData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [loadingCategories, setLoadingCategories] = useState(true);
   const [user, setUser] = useState(null);
   const [errors, setErrors] = useState({
     monthly: false,
@@ -115,6 +117,7 @@ const Dashboard = () => {
 
       try {
         const categories = await GetCategories(userId);
+        setAllCategories(categories || []);
         
         // Fetch expenses for each category using GetExpensesByCategory
         const categoryExpensesPromises = categories.map(async (category) => {
@@ -154,6 +157,9 @@ const Dashboard = () => {
         const is404 = err.response?.status === 404;
         setErrors(prev => ({ ...prev, categories: true, categoriesIs404: is404 }));
         setCategoryData([]);
+        setAllCategories([]);
+      } finally {
+        setLoadingCategories(false);
       }
 
       try {
@@ -208,6 +214,8 @@ const Dashboard = () => {
 
       // Also refresh the categories data since expenses have changed
       const categories = await GetCategories(userId);
+      setAllCategories(categories || []);
+      
       const categoryExpensesPromises = categories.map(async (category) => {
         try {
           const expenses = await GetExpensesByCategory(userId);
@@ -531,6 +539,103 @@ const Dashboard = () => {
     );
   };
 
+  const renderCategoriesWidget = () => {
+    if (loadingCategories) {
+      return (
+        <div className="flex justify-center items-center h-40">
+          <div className="text-gray-400">Loading categories...</div>
+        </div>
+      );
+    }
+
+    if (errors.categories) {
+      return (
+        <EmptyState
+          message="Unable to load categories. Please try again."
+          primaryAction={{
+            label: "Refresh",
+            onClick: () => window.location.reload()
+          }}
+        />
+      );
+    }
+
+    if (allCategories.length === 0) {
+      return (
+        <EmptyState
+          message="No categories found. Create categories to organize your expenses!"
+          primaryAction={{
+            label: "Create First Category",
+            onClick: () => navigate('/addcategory')
+          }}
+        />
+      );
+    }
+
+    const getCategoryColor = (index) => {
+      const colors = ['#10B981', '#3B82F6', '#6366F1', '#8B5CF6', '#EC4899'];
+      return colors[index % colors.length];
+    };
+
+    return (
+      <div className="space-y-3">
+        <div className="flex justify-between items-center mb-2">
+          <p className="text-sm text-gray-400">Your Categories</p>
+        </div>
+        
+        {allCategories.slice(0, 5).map((category, index) => (
+          <div 
+            key={category.id}
+            className="p-3 bg-gray-700/50 rounded-lg flex justify-between items-center hover:bg-gray-700 transition-colors cursor-pointer"
+            onClick={() => navigate('/categories')}
+          >
+            <div className="flex items-center space-x-3">
+              <div 
+                className="w-8 h-8 rounded-full flex items-center justify-center"
+                style={{ backgroundColor: getCategoryColor(index) }}
+              >
+                <Tag className="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <p className="text-white text-sm font-medium">{category.name}</p>
+                <p className="text-gray-400 text-xs">
+                  {category.expenses?.length || 0} expenses
+                </p>
+              </div>
+            </div>
+            <div className="text-xs text-gray-400 flex items-center">
+              {category.description ? (
+                <span className="max-w-[100px] truncate">{category.description}</span>
+              ) : (
+                <span>No description</span>
+              )}
+            </div>
+          </div>
+        ))}
+        
+        {allCategories.length > 5 && (
+          <div className="text-center mt-2">
+            <button
+              onClick={() => navigate('/categories')}
+              className="text-sm text-gray-400 hover:text-white flex items-center justify-center w-full"
+            >
+              <Layers className="w-3 h-3 mr-1" />
+              {allCategories.length - 5} more categories
+            </button>
+          </div>
+        )}
+        
+        <button
+          onClick={() => navigate('/addcategory')}
+          className="w-full mt-3 py-2 px-3 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg text-sm flex items-center justify-center transition-colors"
+        >
+          <PlusCircle className="w-4 h-4 mr-2" />
+          Add New Category
+        </button>
+      </div>
+    );
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
@@ -574,7 +679,7 @@ const Dashboard = () => {
               <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                 <span className="font-medium text-white">{user?.firstName?.charAt(0) || 'U'}</span>
               </div>
-              <span className="text-gray-200">{user.firstName || "User"}</span>
+              <span className="text-gray-200">{user?.firstName || "User"}</span>
               <ChevronDown className="w-4 h-4 text-gray-400" />
             </div>
           </div>
@@ -647,13 +752,11 @@ const Dashboard = () => {
 
           {/* Right Column */}
           <div className="col-span-4 space-y-6">
-            {/* Category Breakdown */}
-            {/* <div className="p-6 rounded-lg bg-gray-800">
-              <h3 className="text-lg font-semibold text-white mb-6">Spending by Category</h3>
-              <div className="h-64">
-                {renderCategoryBreakdown()}
-              </div>
-            </div> */}
+            {/* Categories Widget */}
+            <div className="p-6 rounded-lg bg-gray-800">
+              <h3 className="text-lg font-semibold text-white mb-4">Categories</h3>
+              {renderCategoriesWidget()}
+            </div>
 
             {/* Budget Progress Card */}
             <div className="p-6 rounded-lg bg-gray-800 text-white">
