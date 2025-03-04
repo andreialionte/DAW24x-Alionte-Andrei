@@ -31,7 +31,7 @@ This project was developed as coursework for "Dezvoltarea Aplicațiilor Web" (We
    docker-compose up -d
    ```
 
-3. Access at `http://localhost:4200` (FE) and http://localhost:5000 (BE)
+3. Access at `http://localhost:4200` (FE) and `http://localhost:5000` (BE)
 
 ## Project Structure
 - `client/`: Angular frontend application
