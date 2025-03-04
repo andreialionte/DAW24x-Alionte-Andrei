@@ -16,7 +16,7 @@ This project was developed as coursework for "Dezvoltarea Aplicațiilor Web" (We
 - **Frontend**: React 19
 - **Backend**: .NET 9
 - **Database**: PostgreSQL
-- **Caching**: Redis
+- **Caching**: Valkey 
 - **Security**: JWT tokens, BCrypt password hashing
 - **Deployment**: Docker, Docker Compose
 
