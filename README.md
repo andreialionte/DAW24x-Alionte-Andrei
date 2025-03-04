@@ -13,7 +13,7 @@ This project was developed as coursework for "Dezvoltarea Aplicațiilor Web" (We
 - Secure user authentication
 
 ## Tech Stack
-- **Frontend**: Angular 18
+- **Frontend**: React 19
 - **Backend**: .NET 9
 - **Database**: PostgreSQL
 - **Caching**: Redis
