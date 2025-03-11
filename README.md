@@ -1,7 +1,7 @@
 # Expense Tracker App
 
 ## Overview
-A modern expense tracking application built with Angular 18 and .NET 9. Helps users manage personal finances by tracking expenses, creating budgets, and organizing spending into categories.
+A modern expense tracking application built with React 19 and .NET 9. Helps users manage personal finances by tracking expenses, creating budgets, and organizing spending into categories.
 
 This project was developed as coursework for "Dezvoltarea Aplicațiilor Web" (Web Application Development) in the third year of Computer Science faculty.
 
@@ -34,7 +34,7 @@ This project was developed as coursework for "Dezvoltarea Aplicațiilor Web" (We
 3. Access at `http://localhost:4200` (FE) and `http://localhost:5000` (BE)
 
 ## Project Structure
-- `client/`: Angular frontend application
+- `client/`: React frontend application
 - `server/`: .NET backend API
 - `docker-compose.yml`: Container orchestration
 
